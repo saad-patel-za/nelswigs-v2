@@ -143,3 +143,23 @@ header .wordmark,header .nav-inner {background:transparent}
   #arrivals .split-head p { margin:0 0 22px; }
   .scene h2 { line-height:1.03; }
 }
+#studio .studio-gloss {
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle at 32% 26%,rgb(255 255 255 / 23%),transparent 42%),
+             radial-gradient(circle,transparent 54%,rgb(29 21 18 / 30%) 100%);
+}
+#studio .portrait::after {
+  inset:-4%;
+  border:0;
+  background:conic-gradient(transparent 0 71%,#d9b98688 78%,#fff9e8 85%,transparent 95%);
+  mask:radial-gradient(closest-side,transparent 90%,black 94%);
+}
+#studio .studio-choices [aria-pressed="true"] img {
+  box-shadow:0 0 0 3px #fff3d9,0 0 0 6px #ddbf8d77,0 6px 16px #50382336;
+}
+@media(prefers-reduced-motion:no-preference) {
+  #studio .portrait::after {animation:studio-orbit 13s linear infinite}
+}
