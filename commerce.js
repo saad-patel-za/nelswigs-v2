@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   function selectSlide(n){active=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.hidden=i!==active);dots.forEach((d,i)=>d.setAttribute('aria-pressed',i===active))}
   dots.forEach(d=>d.onclick=()=>selectSlide(Number(d.dataset.goSlide)));
   slider.addEventListener('keydown',e=>{if(e.target.tagName==='A'||e.target.tagName==='BUTTON')return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();selectSlide(active+(e.key==='ArrowRight'?1:-1))}});
-  function fitBanner(){const top=document.querySelector('.announcement').offsetHeight+document.querySelector('header').offsetHeight;slider.style.setProperty('--header-height',`${Math.ceil(top)}px`)}
+  function fitBanner(){const top=document.querySelector('.announcement').offsetHeight;slider.style.setProperty('--header-height',`${Math.ceil(top)}px`)}
   const resizeObserver=new ResizeObserver(fitBanner);resizeObserver.observe(document.querySelector('.header-main'));resizeObserver.observe(document.querySelector('.announcement'));window.addEventListener('resize',fitBanner);fitBanner();
 
   const cart=[];
