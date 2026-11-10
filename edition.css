@@ -163,3 +163,26 @@ header .wordmark,header .nav-inner {background:transparent}
 @media(prefers-reduced-motion:no-preference) {
   #studio .portrait::after {animation:studio-orbit 13s linear infinite}
 }
+
+/* Each slide spans the page and reserves space for the transparent header. */
+.hero-slider, .hero-slider .hero-slide {
+  width:100%;
+  max-width:none;
+  margin-inline:0;
+  height:auto;
+}
+.hero-slider .slide-track { height:auto; }
+.hero-slider .hero-slide:not([hidden]) {
+  display:flex;
+  align-items:flex-end;
+  min-height:50svh;
+  padding:calc(var(--overlay-height,76px) + 12px) 5% 22px;
+}
+.hero-slide .hero-copy { position:relative; inset:auto; width:min(64%,680px); }
+.hero-slide h1, .hero-slide h2 { font-size:clamp(34px,min(4.6vw,7vh),74px); margin:8px 0; }
+.hero-slide .hero-copy p { margin:0 0 12px; }
+@media(max-width:760px) {
+  .hero-slider .hero-slide:not([hidden]) { padding-bottom:46px; }
+  .hero-slide .hero-copy { width:95%; }
+  .hero-slide h1, .hero-slide h2 { font-size:clamp(32px,5.4svh,48px); }
+}
