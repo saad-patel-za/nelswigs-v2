@@ -223,3 +223,25 @@ header .wordmark,header .nav-inner {background:transparent}
   .offer-copy {text-align:center}
   .offer-portrait {width:min(84%,350px);justify-self:center}
 }
+.look-social {display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.look-social a {display:grid;place-items:center;width:44px;height:44px;border:1px solid #b8a99b;border-radius:50%;color:#262524}
+.look-social a:hover,.look-social a:focus-visible {background:#292725;color:white}
+.look-social svg {width:21px;height:21px}
+#news {text-align:left;background:#efe9e2}
+.newsletter-card {display:grid;grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);max-width:1150px;background:#262524;color:#fff9ef}
+.newsletter-photo {position:relative;min-height:320px;overflow:hidden}
+.newsletter-photo img {position:absolute;width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.newsletter-copy {padding:clamp(26px,4.5vw,70px);align-self:center}
+.newsletter-copy .kicker {color:#e2c4a1}
+#news .newsletter-copy h2 {font-size:clamp(40px,4.8vw,72px);margin:15px 0}
+#news .newsletter-copy em {color:#e4cdb1}
+#news .newsletter-copy form {justify-content:flex-start;gap:10px;flex-wrap:wrap;margin-top:24px}
+#news .newsletter-copy label {flex:1 1 170px;min-width:0;font-size:15px}
+#news .newsletter-copy input {width:100%;margin-top:5px;border-radius:3px;background:#fffaf4;color:#232221}
+#news .newsletter-copy button {background:#e4cdb1;color:#201e1d;border:0;min-height:48px}
+@media(max-width:760px){
+  .newsletter-card {grid-template-columns:1fr}
+  .newsletter-photo {min-height:0;height:clamp(160px,45vw,270px)}
+  .newsletter-copy {padding:25px 20px 30px}
+  #news .newsletter-copy form {display:grid;align-items:stretch}
+}
