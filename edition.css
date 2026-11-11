@@ -175,7 +175,7 @@ header .wordmark,header .nav-inner {background:transparent}
 .hero-slider .hero-slide:not([hidden]) {
   display:flex;
   align-items:flex-end;
-  min-height:50svh;
+  min-height:65svh;
   padding:calc(var(--overlay-height,76px) + 12px) 5% 22px;
 }
 .hero-slide .hero-copy { position:relative; inset:auto; width:min(64%,680px); }
@@ -185,4 +185,41 @@ header .wordmark,header .nav-inner {background:transparent}
   .hero-slider .hero-slide:not([hidden]) { padding-bottom:46px; }
   .hero-slide .hero-copy { width:95%; }
   .hero-slide h1, .hero-slide h2 { font-size:clamp(32px,5.4svh,48px); }
+}
+#offers {
+  isolation:isolate;
+  background:radial-gradient(ellipse at 73% 45%,#514a42,#222120 55%,#121212);
+}
+#offers::before {
+  content:"";
+  position:absolute;
+  inset:-25%;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(116deg,transparent 38%,#f2d3a30f 49%,transparent 60%);
+}
+.offer-layout {display:grid;grid-template-columns:1fr minmax(240px,.8fr);align-items:center;gap:7vw;max-width:1120px}
+.offer-copy h2 {font-size:clamp(56px,8vw,116px);margin:18px 0 28px}
+.offer-copy .pill {gap:22px;color:#201d1b;background:#f7e9d8;border:0}
+.offer-copy .pill:hover {background:white;color:#161616}
+.offer-portrait {position:relative;margin:0;padding:9px;border:1px solid #d5bc987a;border-radius:48% 48% 3px 3px}
+#offers .offer-portrait img {display:block;width:100%;aspect-ratio:1/1.12;object-fit:cover;object-position:50% 26%;border-radius:48% 48% 0 0}
+.offer-portrait figcaption {display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 5px 2px;font:20px var(--serif)}
+.offer-portrait figcaption span {font:13px Jost,Arial,sans-serif;color:#e5d6c9}
+@media(prefers-reduced-motion:no-preference) {
+  #offers::before {animation:offer-light 8s ease-in-out infinite alternate}
+  @keyframes offer-light {from{transform:translateX(-15%)}to{transform:translateX(15%)}}
+  #offers .offer-portrait::before {
+    content:"";position:absolute;inset:-7px;border-radius:inherit;padding:1.5px;pointer-events:none;
+    background:conic-gradient(from var(--offer-angle),transparent 60%,#e8cfa5 77%,transparent 94%);
+    mask:linear-gradient(white 0 0) content-box,linear-gradient(white 0 0);mask-composite:exclude;
+    animation:offer-rim 9s linear infinite;
+  }
+  @keyframes offer-rim {to{--offer-angle:360deg}}
+}
+@property --offer-angle {syntax:"<angle>";inherits:false;initial-value:0deg}
+@media(max-width:760px) {
+  .offer-layout {grid-template-columns:1fr;gap:26px}
+  .offer-copy {text-align:center}
+  .offer-portrait {width:min(84%,350px);justify-self:center}
 }
